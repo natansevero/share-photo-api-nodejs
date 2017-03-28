@@ -1,0 +1,27 @@
+{
+  "name": "share-photo-api-nodejs",
+  "version": "0.0.1",
+  "description": "API Node.js para aplicativo SharePhoto ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "Node.js",
+    "Express",
+    "Mongoose",
+    "MongoDB",
+    "API",
+    "RESTful",
+    "Heroku",
+    "MongoLab"
+  ],
+  "author": "Natan Severianos",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.2"
+  }
+}

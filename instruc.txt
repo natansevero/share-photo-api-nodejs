@@ -1,0 +1,9 @@
+Em "models" teremos apenas os esquemas do mongoose.
+
+Em "controllers" teremos actions para api
+
+Em "routes" teremos as rotas que passaram as requisições para o controller
+
+Em "libs" teremos arquivos de "boot.js", "connection.js", "auth.js"(com Passport) e "middlewares.js"
+
+Em "index.js" teremos a chamada do Express e do Consign
