@@ -26,7 +26,7 @@ module.exports = app => {
         Users.findOne(req.body, (err, result) => {
           if(err) return res.sendStatus(401);
           else if(!result) return res.sendStatus(401);
-          res.status(200).json(result._id);
+          res.status(200).json(JSON.parse(result._id));
         });
       } else {
         res.sendStatus(401);
