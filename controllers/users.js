@@ -3,13 +3,10 @@ module.exports = app => {
 
   var UsersController = {
     create: (req, res) => {
-      Users.create(req.body)
-        .then(result => {
-          return res.status(200).json(result);
-        })
-        .catch(err => {
-          return res.status(412).json({ msg: err.erros });
-        });
+      Users.create(req.body, (err, result) => {
+        if(err) return res.status(412).json({ msg: err });
+        res.status(200).json(result);
+      })
     }
   }
 
