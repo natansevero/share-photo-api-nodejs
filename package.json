@@ -4,7 +4,8 @@
   "description": "API Node.js para aplicativo SharePhoto ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=dev nodemon app.js"
   },
   "engines": {
     "node": "5.9.1"
