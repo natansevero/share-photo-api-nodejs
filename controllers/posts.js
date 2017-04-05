@@ -13,7 +13,7 @@ module.exports = app => {
         });
 
         user.save((err, result) => {
-          if(err) return res.stauts(500).json({ msg: err });
+          if(err) return res.status(500).json({ msg: err });
           return res.status(200).json(result);
         });
       });
