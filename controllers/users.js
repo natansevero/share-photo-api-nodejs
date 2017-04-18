@@ -31,6 +31,13 @@ module.exports = app => {
       } else {
         res.sendStatus(401);
       }
+    },
+
+    getOne: (req, res) => {
+      Users.findOne({ _id: req.params.id }, (err, result) => {
+        if(err) return res.sendStatus(401);
+        res.status(200).json(result);
+      });
     }
 
   }
