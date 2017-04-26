@@ -3,7 +3,15 @@ module.exports = app => {
 
   app.post('/users', UsersController.create);
   app.post('/authenticate', UsersController.authenticate);
+  app.get('/users', UsersController.retrieve);
   app.get('/users/:id', UsersController.getOne);
-// app.get('/users', UsersController.retrieve);
 
+  /*
+    POST/
+      {
+        id_usuario: xxxx,
+        id_seguir: xxxx
+      }
+  */
+  app.post('/users/follow', UsersController.follow);
 }

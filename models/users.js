@@ -16,7 +16,9 @@ module.exports = app => {
     nome_usuario: { type: String, required: true, index: { unique: true } },
     senha: { type: String, required: true },
     sexo: { type: String, required: true },
-    postagens: [PostsSchema]
+    seguindo: [ String ],
+    seguidores: [ String ],
+    postagens: [ PostsSchema ]
   });
 
   return db.model("users", UserSchema);
