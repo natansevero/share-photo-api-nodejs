@@ -64,6 +64,32 @@ module.exports = app => {
       });
 
       return res.status(200).json(results);
+    },
+
+    update: (req, res) => {
+      var id = req.params.id;
+
+      if(req.body.senha) {
+        req.body.senha = crypto.createHash('md5')
+                               .update(req.body.senha)
+                               .digest('hex');
+      }
+
+      var dados = req.body;
+
+      Users.update({ _id: id }, { $set: dados }, (err, result) => {
+        if(err) return res.sendStatus(401);
+        return res.status(200).json(result);
+      })
+    },
+
+    delete: (req, res) => {
+      var id = req.params.id;
+
+      Users.remove({ _id: id }, (err, result) => {
+        if(err) return res.sendStatus(401);
+        return res.status(200).json(result);
+      })
     }
 
   }

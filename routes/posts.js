@@ -7,4 +7,27 @@ module.exports = app => {
     Necessário enviar o id do usuario.
   */
   app.get('/posts/feed/:id_usuario', PostsController.retrieve);
+
+  /*
+    {
+      id_usuario: xxx // Id de quem curti
+      post: {
+        id_user: xxx, // Id do usuario dono do post
+        _id: xxx      // Id do post
+      }
+    }
+  */
+  app.post('/posts/like', PostsController.like);
+
+  /*
+    {
+      nome_usuario: xxx // Nome de usuario de quem fez o comentario
+      comentario: xxx   // Texto do comentario
+      post: {
+        id_user: xxx    // Id do usuario dono do post
+        _id: xxx        // Id do post
+      }
+    }
+  */
+  app.post('/posts/comment', PostsController.comment);
 }

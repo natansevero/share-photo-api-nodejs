@@ -4,9 +4,16 @@ module.exports = app => {
   var db = app.libs.db;
   var Schema = mongoose.Schema;
 
+  var CommentPostSchema = new Schema({
+    nome_usuario: { type: String },
+    comentario: { type: String }
+  });
+
   var PostsSchema = new Schema({
     foto: { type: String, required: true },
     descricao: { type: String, required: true },
+    curtidas: [ String ],
+    comentarios: [ CommentPostSchema ],
     data: { type: Date, default: Date.now }
   });
 
@@ -18,6 +25,7 @@ module.exports = app => {
     sexo: { type: String, required: true },
     seguindo: [ String ],
     seguidores: [ String ],
+    foto_perfil: { type: String },
     postagens: [ PostsSchema ]
   });
 
