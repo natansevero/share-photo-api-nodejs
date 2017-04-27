@@ -85,7 +85,7 @@ module.exports = app => {
 
         user.postagens.forEach((p, index) => {
           if(p._id == req.body.post._id) {
-            let obj = {
+            var obj = {
               nome_usuario: req.body.nome_usuario,
               comentario: req.body.comentario
             }
