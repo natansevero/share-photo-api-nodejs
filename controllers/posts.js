@@ -42,7 +42,7 @@ module.exports = app => {
                   var post = {
                     nome: nome,
                     id_user: id_user,
-                    foto_perfil: foto_perfil,
+                    // foto_perfil: foto_perfil,
                     foto: p.foto,
                     descricao: p.descricao,
                     _id: p._id,
