@@ -15,5 +15,5 @@ module.exports = app => {
   */
   app.post('/users/follow', UsersController.follow);
   app.put('/users/:id', UsersController.update);
-  app.delete('/users/:id', UsersController.delete);
+  app.post('/users/delete', UsersController.delete);
 }

@@ -26,6 +26,7 @@ module.exports = app => {
     seguindo: [ String ],
     seguidores: [ String ],
     foto_perfil: { type: String },
+    descricao: { type: String },
     postagens: [ PostsSchema ]
   });
 

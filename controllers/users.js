@@ -84,12 +84,18 @@ module.exports = app => {
     },
 
     delete: (req, res) => {
-      var id = req.params.id;
+      if(req.body.email && req.body.senha) {
+        req.body.senha = crypto.createHash('md5')
+                               .update(req.body.senha)
+                               .digest('hex');
 
-      Users.remove({ _id: id }, (err, result) => {
-        if(err) return res.sendStatus(401);
-        return res.status(200).json(result);
-      })
+        Users.remove({ email: req.body.email, senha: req.body.senha }, (err, result) => {
+          if(err) return res.sendStatus(401);
+          return res.status(200).json(result);
+        });
+      } else {
+        return res.sendStatus(401)
+      }
     }
 
   }
