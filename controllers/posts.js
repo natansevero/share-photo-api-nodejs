@@ -22,19 +22,22 @@ module.exports = app => {
     retrieve: (req, res) => {
       // ID do usuário que tá vendo o feed
       var id_usuario = req.params.id_usuario;
+      var users_posts = [];
+
       PostsUsers.findOne({ _id: id_usuario }, (err, user) => {
         if(err) return res.sendStatus(401);
 
-        var users_posts = [];
         PostsUsers.find({}, (err, users) => {
           if(err) return res.sendStatus(401);
 
           user.seguindo.forEach(seguindo => {
             users.forEach(u => {
+              console.log("seguindo:", seguindo);
+              console.log("u._id:", u._id);
               if(seguindo == u._id) {
                 var id_user = u._id;
                 var nome = u.nome;
-                var foto_perfil = u.foto_perfil;
+                // var foto_perfil = u.foto_perfil;
                 u.postagens.forEach(p => {
                   var post = {
                     nome: nome,
@@ -47,14 +50,14 @@ module.exports = app => {
                     curtidas: p.curtidas,
                     comentarios: p.comentarios
                   }
-
+                  console.log(post);
                   users_posts.push(post);
                 });
               }
             })
           });
 
-          if(users_posts) return res.status(200).json(users_posts)
+          if(users_posts.length > 0) return res.status(200).json(users_posts)
         })
 
       });
