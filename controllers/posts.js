@@ -32,27 +32,10 @@ module.exports = app => {
 
           user.seguindo.forEach(seguindo => {
             users.forEach(u => {
-              console.log("seguindo:", seguindo);
-              console.log("u._id:", u._id);
+              // console.log("seguindo:", seguindo);
+              // console.log("u._id:", u._id);
               if(seguindo == u._id) {
-                var id_user = u._id;
-                var nome = u.nome;
-                // var foto_perfil = u.foto_perfil;
-                u.postagens.forEach(p => {
-                  var post = {
-                    nome: nome,
-                    id_user: id_user,
-                    // foto_perfil: foto_perfil,
-                    foto: p.foto,
-                    descricao: p.descricao,
-                    _id: p._id,
-                    data: p.data,
-                    curtidas: p.curtidas,
-                    comentarios: p.comentarios
-                  }
-                  console.log(post);
-                  users_posts.push(post);
-                });
+                users_posts.push(u);
               }
             })
           });
