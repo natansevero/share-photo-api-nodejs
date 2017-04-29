@@ -34,7 +34,7 @@ module.exports = app => {
     },
 
     retrieve: (req, res) => {
-      Users.find((err, result) => {
+      Users.find({}, { _id: 1, nome_usuario: 1 }, (err, result) => {
         if(err) return res.sendStatus(401);
         return res.status(200).json(result);
       })
