@@ -26,7 +26,13 @@ module.exports = app => {
         Users.findOne(req.body, (err, result) => {
           if(err) return res.sendStatus(401);
           else if(!result) return res.sendStatus(401);
-          res.status(200).json(result._id);
+          else {
+            var user = {
+              _id: result._id,
+              nome_usuario: result.nome_usuario
+            }
+            res.status(200).json(user);
+          }
         });
       } else {
         res.sendStatus(401);
